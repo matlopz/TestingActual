@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="SuiteDespegar">
+	<parameter name="Navegador" value="CHROME"></parameter>
+	<test thread-count="5" name="TestDespegar">
+		<groups>
+			<run>
+				<include name="grupo1"></include>
+
+			</run>
+		</groups>
+		<classes>
+			<class name="com.testPrue.DespegarTest1" />
+			<!-- class name="com.testPrue.DespegarTest2"/> --> 
+			<!-- class name="com.testPrue.DespegarTest3" /> -->
+		</classes>
+	</test> <!-- TestDespegar -->
+</suite> <!-- SuiteDespegar -->
