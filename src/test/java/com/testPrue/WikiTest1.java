@@ -1,34 +1,32 @@
 package com.testPrue;
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-
-
 import pageObjects.WikiHomePage;
 import pageObjects.WikiResultPage;
 import utils.BaseTest;
 
+public class WikiTest1 {
+	private WebDriver driver = null;
 
-
-public class WikiTest1 extends BaseTest{
-
-	@BeforeMethod
+	@BeforeClass
 	public void setup() {
-		WebDriver driver = BaseTest.iniciarBrowser("CHROME");
+		driver = BaseTest.iniciarBrowser("CHROME");
 		BaseTest.gotoMainPageWiki(driver);
-		WikiHomePage homePage = new WikiHomePage(driver);
 	}
 
-@Test
-  public void ValidarBusquedaWikiPedia() throws Exception {
-	WebDriver driver = BaseTest.iniciarBrowser("CHROME");
-	BaseTest.gotoMainPageWiki(driver);
-	WikiHomePage homePage = new WikiHomePage(driver);
-	Assert.assertTrue(homePage.searchInputesVisible());
-	WikiResultPage resultPage = homePage.searchInput("Selenium");
-	Assert.assertTrue(resultPage.tituloVisible());
-  }
+	@Test
+	public void ValidarBusquedaWikiPedia() {
+		WikiHomePage homePage1 = new WikiHomePage(driver);
+		Assert.assertTrue(homePage1.searchInputesVisible());
+		WikiResultPage resultPage = homePage1.searchInput("Selenium");
+		Assert.assertTrue(resultPage.tituloVisible());
+	}
+
+	@AfterClass
+	public void endSetup() {
+		driver.close();
+	}
 }
