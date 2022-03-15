@@ -12,10 +12,10 @@ import pageObjects.DespegarHomePage;
 import pageObjects.DespegarResultPage;
 import utils.BaseTest;
 
-public class DespegarTest2 {
+public class DespegarTest2 extends BaseTest {
 	private WebDriver driver = null;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void setup(ITestContext context) {
 		String navegadorTestSuite = context.getCurrentXmlTest().getParameter("Navegador");
 		String navegador = navegadorTestSuite != null ? navegadorTestSuite : "CHROME";
@@ -24,7 +24,7 @@ public class DespegarTest2 {
 
 	}
 
-	@Test( dataProvider = "ciudad")
+	@Test(groups= {"grupo3"}, dataProvider = "ciudad")
 	public void AlojamientoProvide(String ciudades) throws InterruptedException {
 
 		DespegarHomePage homePage = new DespegarHomePage(driver);
@@ -37,7 +37,7 @@ public class DespegarTest2 {
 
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void endSetup() {
 		driver.close();
 	}

@@ -5,14 +5,15 @@
 	<test thread-count="5" name="TestDespegar">
 		<groups>
 			<run>
-				<include name="grupo1"></include>
-
+				<include name="grupo2"></include>
+				<exclude name="grupo1"></exclude>
+				<include name="grupo3"></include>
 			</run>
 		</groups>
 		<classes>
 			<class name="com.testPrue.DespegarTest1" />
-			<!-- class name="com.testPrue.DespegarTest2"/> --> 
-			<!-- class name="com.testPrue.DespegarTest3" /> -->
+			<class name="com.testPrue.DespegarTest2" />
+			<class name="com.testPrue.DespegarTest3" />
 		</classes>
 	</test> <!-- TestDespegar -->
 </suite> <!-- SuiteDespegar -->

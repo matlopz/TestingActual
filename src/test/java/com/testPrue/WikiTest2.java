@@ -8,16 +8,19 @@ import utils.BaseTest;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
-public class WikiTest2 {
+public class WikiTest2 extends BaseTest{
 	private WebDriver driver = null;
 
 	@BeforeMethod
-	public void setup() {
-		driver = BaseTest.iniciarBrowser("CHROME");
+	public void setup(ITestContext context) {
+		String navegadorTestSuite = context.getCurrentXmlTest().getParameter("Navegador");
+		String navegador = navegadorTestSuite != null ? navegadorTestSuite : "CHROME";
+		driver = BaseTest.iniciarBrowser(navegador);
 		BaseTest.gotoMainPageWiki(driver);
 
 	}
