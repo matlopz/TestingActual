@@ -5,7 +5,6 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageObjects.DespegarAlojamientoPage;
@@ -13,10 +12,10 @@ import pageObjects.DespegarHomePage;
 import pageObjects.DespegarResultPage;
 import utils.BaseTest;
 
-public class DespegarTest1 {
-	WebDriver driver;
+public class DespegarTest1 extends BaseTest {
+	private WebDriver driver = null;
 
-	@BeforeMethod
+	@BeforeClass(alwaysRun=true)
 	public void setup(ITestContext context) {
 		String navegadorTestSuite = context.getCurrentXmlTest().getParameter("Navegador");
 		String navegador = navegadorTestSuite != null ? navegadorTestSuite : "CHROME";
@@ -40,7 +39,7 @@ public class DespegarTest1 {
 		Assert.assertTrue(result.Resultado());
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void endSetup() {
 		driver.close();
 	}

@@ -13,10 +13,10 @@ import org.testng.Assert;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 
-public class DespegarTest3 {
-	WebDriver driver;
+public class DespegarTest3 extends BaseTest{
+	private WebDriver driver= null;
 
-	@BeforeClass
+	@BeforeClass(alwaysRun=true)
 	public void beforeClass(ITestContext context) {
 		String navegadorTestSuite = context.getCurrentXmlTest().getParameter("Navegador");
 		String navegador = navegadorTestSuite != null ? navegadorTestSuite : "CHROME";
@@ -24,7 +24,7 @@ public class DespegarTest3 {
 		BaseTest.gotoMainPageDespegar(driver);
 	}
 
-	@Test()
+	@Test(groups = {"grupo2"})
 	public void Alojamiento() throws InterruptedException {
 		DespegarHomePage homePage = new DespegarHomePage(driver);
 		Assert.assertTrue(homePage.DespegarVisible());
@@ -36,7 +36,7 @@ public class DespegarTest3 {
 		result.Precio();
 	}
 
-	@AfterClass
+	@AfterClass(alwaysRun=true)
 	public void afterClass() {
 
 		driver.close();
