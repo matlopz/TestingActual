@@ -64,20 +64,18 @@ public class DespegarAlojamientoPage {
 		entendi.click();
 		loginInteractiv.click();
 		((JavascriptExecutor) driver).executeScript("scroll(0,200)");
-		// wait.until(ExpectedConditions.vi);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".sbox5-box-places-ovr input")));
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.cssSelector(".sbox5-box-places-ovr .input-container")));
 		igresoCiudadlocator.click();
 		igresoCiudadlocator.clear();
+		Thread.sleep(2000);
 		igresoCiudadlocator.sendKeys(ciudad);
-		igresoCiudadlocator.sendKeys(Keys.CONTROL);
-		igresoCiudadlocator.sendKeys(Keys.ENTER);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ac-container .item-text")));
 		destinolocator.click();
 		wait.until(ExpectedConditions.visibilityOfElementLocated(
 				By.xpath("//div[@class=\"sbox5-box-dates-checkbox-container\"]//div[@class=\"sbox5-dates-input1\"]")));
-
 		entradaLocator.click();
-		
+
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(
 				"//*[@class='sbox5-floating-tooltip sbox5-floating-tooltip-opened']//*[@class='sbox5-monthgrid' or @class='sbox5-monthgrid sbox5-compact-view'][@data-month='2022-03']//*[@class='sbox5-monthgrid-datenumber-number'][text()='10']")));
 		calendarioEntraLocator.click();

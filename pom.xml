@@ -67,6 +67,7 @@
 						<suiteXmlFiles>
 							<suiteXmlFile>src/test/java/suit/${parametro_Wiki}</suiteXmlFile>
 							
+							
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
